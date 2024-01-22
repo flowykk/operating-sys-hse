@@ -127,3 +127,24 @@
 - UNIX
 - OS/2
 - Windows
+
+# Мой выбор ОС
+Мой выбор ОС падает на macOS. Немало важную роль играет интеграция между аппаратным и программным обеспечением, которую предлагает компания Apple. Благодаря экосистеме Apple мне легко синхронизировать данные и работать с несколькими устройствами Apple, такими как iPhone, iPad, наушникам и тд.
+
+Дизайн и пользовательский интерфейс этой операционной системы также играют ключевую роль в моем выборе – он интуитивен и понятен для использования.
+
+По сравнению с Windows, macOS менее подвержена вирусам, что обеспечивает достаточно высокий уровень безопасности. В сравнении с Linux, macOS предоставляет более дружественное для пользователя окружение без необходимости глубоких знаний в области командной строки.
+
+Таким образом, macOS для меня является оптимальным выбором, сочетая в себе не только удобство для программирования, но и возможности для удобной работы с повседневными задачами.
+
+# Используемые источники информации
+- https://ru.wikipedia.org/wiki/Linux
+- https://www.yaneuch.ru/cat_28/tipy-arhitektur-yader-operacionnyh-sistem/251844.2192505.page2.html
+- https://ru.frwiki.wiki/wiki/Exo-noyau#Les_LibOSes
+- https://mf.grsu.by/UchProc/livak/b_lecture/lec34_OS.html
+- https://compress.ru/article.aspx?id=19369
+- https://habr.com/ru/articles/208780/
+- https://ru.frwiki.wiki/wiki/Syst%C3%A8me_d%27exploitation_pour_capteur_en_r%C3%A9seau#Contiki
+- https://www.notebook-center.ru/overview_848.html
+- https://marketing-tech.ru/it_company_product_type/vstroennie-systemnie-programmy-operatsionnie-systemy/
+- https://dotnet.microsoft.com/en-us/
