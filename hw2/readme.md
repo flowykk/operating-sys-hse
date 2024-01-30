@@ -53,17 +53,17 @@ danilarahmanov@MacBook-Pro-Danila hw2 % bash while2.sh
 
 ## Скриншоты, демонстрирующие работу программы
 
-#### Скрипт if_strings_eq1.sh
+### Скрипт if_strings_eq1.sh
 <img width="735" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/30f68b14-1740-43ef-927e-aaf9baddc5c2">
 
-#### Скрипт if_strings_eq2.sh
+### Скрипт if_strings_eq2.sh
 <img width="733" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/0d05352d-cad1-41a7-a307-ecf40fec5524">
 
-#### Скрипт is_var_empty.sh
+### Скрипт is_var_empty.sh
 <img width="731" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/626ebd1e-f83d-48d5-97f5-16d4a9ce6062">
 
-#### Скрипт while1.sh
+### Скрипт while1.sh
 <img width="734" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/d1300aca-2227-4d8b-b485-87da6636ac48">
 
-#### Скрипт while2.sh
+### Скрипт while2.sh
 <img width="731" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a69455c5-1c3d-41de-9724-5bfe56f75295">
