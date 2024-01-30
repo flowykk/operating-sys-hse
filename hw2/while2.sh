@@ -1,11 +1,11 @@
 #!/bin/bash
 
-name=""
+word=""
 
-while [ "$name" != "0" ]; do
-    read -p "Введите слово: " name
+while [ "$word" != "0" ]; do
+    read -p "Введите слово: " word
 
     if [ "$name" != "0" ]; then
-        echo "Введенное имя: $name!"
+        echo "Введенное слово: $word!"
     fi
 done
