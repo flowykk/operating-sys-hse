@@ -1,49 +1,30 @@
-# ДЗ №4
+# ДЗ №5
 
 __Работу выполнил__: Рахманов Данила Дмитриевич
 
-## Что сделано в ДЗ №4?
+## Что сделано в ДЗ №5?
 
 ### Оценка 10:
-- Разработана программа, читающая файл и записывающая его содержимое в другой файл, используюшая только системные вызовы.
-- Имена файлов для чтения и записи задаваются с использованием аргументов командной строки.
-- Вместо большого буфера используется для работы с файлами буфер ограниченного размера.
-- Читаются и переписываются не только текстовые, но и исполняемые файлы (текстовые и бинарные, содержащие признак исполняемости), а права доступа сохраняются.
+- Реализовано две программы: клиент (передатчик) и сервер (приемник)
+- Каждая программа в начале печатает свой PID и запрашивает ввод с клавиатуры PID программы–собеседника (вводится пользователем).
+- Программа—передатчик запрашивает с клавиатуры ввод целого десятичного числа.
+- Введенное число побитово передается программе-приемнику с использованием пользовательских сигналов SIGUSR1 и SIGUSR2.
+- Программа–приемник после завершения приема печатает принятое число в десятичной системе счисления.
 
 ## Код программы
-### [Главный файл программы](main.cpp)
+### [Программа-передатчик](client.cpp)
+### [Программа-приемник](server.cpp)
 
 ## Скриншоты, демонстрирующие работу программы
 
-### Создание копии текстового файла
+### 1. Программа передатчик запрашивает ввод RECEIVER pid
+<img width="738" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a0702fab-2557-4269-a475-0da469783e70">
 
-#### Изначальное содержимое text.txt
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a0976234-cf63-4d00-9701-10bda078a53a">
+### 2. Программа приемник запрашивает ввод SENDER pid
+<img width="803" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a0d52d9c-bba1-4172-b0ac-80fadbe2ada3">
 
-#### Действия в терминале
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/b9266e07-cfe8-4568-b78f-5ba1202fde6a">
+### 3. Программа передатчик запрашивает ввод изначального числа
+<img width="735" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/d8869941-f87c-4581-8acd-9b83f12b8461">
 
-#### Содержимое textcopy.txt
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/ac3c730f-abe2-4922-ac6e-695c811d50c8">
-
-### Создание копии бинарного файла
-
-#### Изначальное содержимое binary.jpeg
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/ca4f2994-1e66-4baf-90c0-c080e6fe30c8">
-
-#### Действия в терминале
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/1818897a-d13c-4a92-aa50-242de5253a54">
-
-#### Содержимое binarycopy.jpeg
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/10614e80-dd00-485a-8161-e47ee2f610b4">
-
-### Создание копии исполняемого файла
-
-#### Изначальное содержимое main.cpp
-[main.cpp](main.cpp)
-
-#### Действия в терминале
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/b32973f1-bbea-4298-8ada-232fb10fa5a7">
-
-#### Содержимое maincopy.cpp
-<img width="850" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a56135ea-2216-4310-abfe-bfe285d1f62b">
+### 4. Программа приемник выводит результат и завершает работу двух программ
+<img width="804" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/97b3f2c6-7f2d-4bfd-9947-96c7813d022f">
