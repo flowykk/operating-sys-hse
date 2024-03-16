@@ -211,16 +211,18 @@ if (unlink(FIFO_FILE_2) == -1) {
 #### Содержимое output4.txt
 <img width="646" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/6c75a7f0-c77a-440e-9e9e-d7bf24d8a2bd">
 
-### Пример 6. 10000 символов
+### Пример 6. 5000 символов
 
 #### Ввод в терминале 
-![Uploading image.png…]()
+<img width="1082" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5af77554-3bb5-4465-b9fc-261e54651c40">
 
 #### Содержимое файла input5.txt 
-<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5fabd1b6-5b24-4f07-8ed3-3b100f017ecd">
+<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9ce4b24-fc1e-48fd-a19a-6e41d34c4fc5">
 
 #### Результат в терминале
-<img width="1084" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/274e329c-076c-447a-b450-47473cdb8fa5">
+<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/11c19852-3a18-409d-8f18-a1dadc7c18a7">
+
+<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/0703dc66-e14a-4a32-9299-34a0ee6b1412">
 
 #### Содержимое output5.txt
-<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a5b39cdb-f692-4358-8908-ea820771d42f">
+<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a2ee5f9f-b492-47c5-b2d0-3f577c15cd52">
