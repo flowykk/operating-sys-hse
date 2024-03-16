@@ -69,3 +69,15 @@ if (n <= 0) {
     n = 1;
 }
 ```
+
+Далее происходит создание двух каналов и обработка ошибок.
+```cpp
+if (mkfifo(FIFO_FILE_1, 0666) == -1) {
+    printf("mkfifo FIFO_FILE_1");
+    exit(EXIT_FAILURE);
+}
+if (mkfifo(FIFO_FILE_2, 0666) == -1) {
+    printf("mkfifo FIFO_FILE_2");
+    exit(EXIT_FAILURE);
+}
+```
