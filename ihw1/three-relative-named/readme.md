@@ -101,3 +101,53 @@ if (pid1 < 0) {
     }
 }
 ```
+
+Следующий фрагмент кода отвечает за то, чтобы Процесс 1 открыл файл `FIFO_FILE_1` канал `fifo1` для записи и отправки данных другому процессу 
+```cpp
+else if (pid1 == 0) {
+    // work
+    fd1 = open(FIFO_FILE_1, O_WRONLY);
+    // work
+}
+```
+
+Фрагмент кода ниже выполняет похожую процедуру: Процесс 2 открывает `FIFO_FILE_1` для чтения и считывает данные из него.
+```cpp
+} else if (pid2 == 0) {
+    // work
+    fd1 = open(FIFO_FILE_1, O_RDONLY);
+    // work
+}
+```
+
+Далее Процесс 3 открывает `FIFO_FILE_2` для чтения и считывает данные из файла.
+```cpp
+} else { 
+    // work
+    fd = open(FIFO_FILE_2, O_RDONLY);
+    // work
+}
+```
+
+После этого происходит запись результата в указанный файл и освобождение именованных каналов.
+```cpp
+FILE *fp = fopen(output_file, "w");
+if (fp == NULL) {
+    perror("open output file");
+    exit(-1);
+}
+fprintf(fp, "%s", buffer);
+fclose(fp);
+
+// Удаление FIFOs
+if (unlink(FIFO_FILE_1) == -1) {
+    perror("unlink FIFO_FILE_1");
+    exit(-1);
+}
+if (unlink(FIFO_FILE_2) == -1) {
+    perror("unlink FIFO_FILE_2");
+    exit(-1);
+}
+```
+
+## Скриншоты демонстрирующие работу приложения через Терминал
