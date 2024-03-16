@@ -151,3 +151,64 @@ if (unlink(FIFO_FILE_2) == -1) {
 ```
 
 ## Скриншоты демонстрирующие работу приложения через Терминал
+
+### Пример 1. Некорректный ввод
+<img width="1085" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/8e8dca85-20e6-4748-80a4-a5c9f25ac9fe">
+
+### Пример 2 
+
+#### Ввод в терминале 
+<img width="1085" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/472fa8ae-64e2-4d15-ac21-03bb30c47a11">
+
+#### Содержимое файла input1.txt 
+<img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a09ae7ba-a4d6-411e-9391-2c4311141828">
+
+#### Результат в терминале
+<img width="1084" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/caa77480-78c4-45d2-a8ce-685433f11908">
+
+#### Содержимое output1.txt
+<img width="650" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/27d8314e-c5d3-49fd-a0df-07150226dac5">
+
+### Пример 3. N > длинны строки в файле
+
+#### Ввод в терминале 
+<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5494d4a9-5621-4fda-9a6e-2094850dfaf0">
+
+#### Содержимое файла input2.txt 
+<img width="648" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/40719d22-182c-440a-bcb9-2647a0578e4b">
+
+#### Результат в терминале
+<img width="1081" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/fdde8837-24c4-4f81-b4c4-bb1fc158b632">
+
+#### Содержимое output2.txt
+![Uploading image.png…]()
+
+### Пример 4 
+
+#### Ввод в терминале 
+
+#### Содержимое файла input3.txt 
+
+#### Результат в терминале
+
+#### Содержимое output3.txt
+
+### Пример 5 
+
+#### Ввод в терминале 
+
+#### Содержимое файла input4.txt 
+
+#### Результат в терминале
+
+#### Содержимое output4.txt
+
+### Пример 6
+
+#### Ввод в терминале 
+
+#### Содержимое файла input5.txt 
+
+#### Результат в терминале
+
+#### Содержимое output5.txt
