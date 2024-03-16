@@ -181,7 +181,7 @@ if (unlink(FIFO_FILE_2) == -1) {
 <img width="1081" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/fdde8837-24c4-4f81-b4c4-bb1fc158b632">
 
 #### Содержимое output2.txt
-![Uploading image.png…]()
+<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/be0691a9-d336-48c5-82dd-fb3e0df09836">
 
 ### Пример 4 
 
