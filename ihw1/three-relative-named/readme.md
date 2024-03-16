@@ -183,32 +183,44 @@ if (unlink(FIFO_FILE_2) == -1) {
 #### Содержимое output2.txt
 <img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/be0691a9-d336-48c5-82dd-fb3e0df09836">
 
-### Пример 4 
+### Пример 4. Пустой файл
 
 #### Ввод в терминале 
+<img width="1086" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/3ec4c5f2-5965-43c9-b611-d793451d7fe8">
 
 #### Содержимое файла input3.txt 
+<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/9c2f6005-150d-4077-b2a4-031ba4e542d8">
 
 #### Результат в терминале
+<img width="1080" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/34a534bb-1a5e-4d5c-9710-cd3441acf22c">
 
 #### Содержимое output3.txt
+<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c5793740-638b-4e6d-8a7c-60719cfe96d8">
 
-### Пример 5 
+### Пример 5. 1000 символов
 
 #### Ввод в терминале 
+<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a14c8fe8-7248-42bc-9bb9-7d3e9c333e8c">
 
 #### Содержимое файла input4.txt 
+<img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c9e82c7c-2610-4814-8cde-df2514aac9ff">
 
 #### Результат в терминале
+<img width="1079" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c43882ac-27c8-46b1-b8d2-e48afa2880d2">
 
 #### Содержимое output4.txt
+<img width="646" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/6c75a7f0-c77a-440e-9e9e-d7bf24d8a2bd">
 
-### Пример 6
+### Пример 6. 10000 символов
 
 #### Ввод в терминале 
+![Uploading image.png…]()
 
 #### Содержимое файла input5.txt 
+<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5fabd1b6-5b24-4f07-8ed3-3b100f017ecd">
 
 #### Результат в терминале
+<img width="1084" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/274e329c-076c-447a-b450-47473cdb8fa5">
 
 #### Содержимое output5.txt
+<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a5b39cdb-f692-4358-8908-ea820771d42f">
