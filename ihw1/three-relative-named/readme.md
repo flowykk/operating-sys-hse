@@ -81,3 +81,23 @@ if (mkfifo(FIFO_FILE_2, 0666) == -1) {
     exit(EXIT_FAILURE);
 }
 ```
+
+После этого идёт большое условие `if`, и создаются три процесса, между которыми будут передаваться данные:
+```cpp
+pid_t pid1, pid2;
+pid1 = fork();
+if (pid1 < 0) {
+    // fail
+} else if (pid1 == 0) { // Процесс 1
+    // work
+} else { // Процесс 2
+    pid2 = fork();
+    if (pid2 < 0) {
+        // fail
+    } else if (pid2 == 0) {
+        // work
+    } else { // Процесс 3
+        // work
+    }
+}
+```
