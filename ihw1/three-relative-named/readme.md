@@ -50,3 +50,22 @@ void findSequence(const char* input, int N, char* sequence) {
     sequence[0] = '\0';
 }
 ```
+
+Далее в функции `main` считываются данные из терминала и происходит проверка числа `n`, которая была затронута выше.
+```cpp
+for (int i = 1; i < argc; i++) {
+    if (strcmp(argv[i], "-n") == 0) {
+        n = std::stoi(argv[++i]);
+        printf("Inputed n is %d\n", n);
+    } else if (strcmp(argv[i], "-in") == 0) {
+        input_file = argv[++i];
+    } else if (strcmp(argv[i], "-out") == 0) {
+        output_file = argv[++i];
+    }
+}
+if (n <= 0) {
+    printf("Number n must be > 0!");
+    printf("Program will use n = 1");
+    n = 1;
+}
+```
