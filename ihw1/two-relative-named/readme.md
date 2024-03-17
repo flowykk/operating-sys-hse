@@ -239,7 +239,7 @@ close(fd2);
 ### Пример 6. 5000 символов
 
 #### Содержимое файла input5.txt 
-<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9ce4b24-fc1e-48fd-a19a-6e41d34c4fc5">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/361d5a74-f87b-4e2b-bae3-b94d4ad12d67)
 
 #### Результат в терминале
 ![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/9fcf7a25-854e-461e-86c7-56af9a23f2ec)
