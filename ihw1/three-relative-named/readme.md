@@ -217,7 +217,7 @@ if (unlink(FIFO_FILE_2) == -1) {
 <img width="1082" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5af77554-3bb5-4465-b9fc-261e54651c40">
 
 #### Содержимое файла input5.txt 
-<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9ce4b24-fc1e-48fd-a19a-6e41d34c4fc5">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/0ee2fcb4-e095-41ec-88e4-e0a7fa0a128e)
 
 #### Результат в терминале
 <img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/11c19852-3a18-409d-8f18-a1dadc7c18a7">
