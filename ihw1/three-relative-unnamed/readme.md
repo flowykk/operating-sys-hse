@@ -29,7 +29,7 @@
 ## Скриншоты демонстрирующие работу приложения через Терминал
 
 ### Пример 1. Некорректный ввод
-<img width="1085" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/8e8dca85-20e6-4748-80a4-a5c9f25ac9fe">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/e30f6288-e154-4bcb-9b63-bac9f6f43f19)
 
 ### Пример 2 
 
@@ -45,7 +45,7 @@
 #### Содержимое output1.txt
 <img width="650" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/27d8314e-c5d3-49fd-a0df-07150226dac5">
 
-### Пример 3. N > длинны строки в файле
+### Пример 3. N > длины строки в файле
 
 #### Ввод в терминале 
 <img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5494d4a9-5621-4fda-9a6e-2094850dfaf0">
@@ -76,16 +76,16 @@
 ### Пример 5. 1000 символов
 
 #### Ввод в терминале 
-<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a14c8fe8-7248-42bc-9bb9-7d3e9c333e8c">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/ef7631e8-bcf5-4520-8ed1-5c94404b2ae2)
 
 #### Содержимое файла input4.txt 
 <img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c9e82c7c-2610-4814-8cde-df2514aac9ff">
 
 #### Результат в терминале
-<img width="1079" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c43882ac-27c8-46b1-b8d2-e48afa2880d2">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/d0094d5a-3d44-40e2-bab9-747b9817e3eb)
 
 #### Содержимое output4.txt
-<img width="646" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/6c75a7f0-c77a-440e-9e9e-d7bf24d8a2bd">
+<img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9d334d2-ae51-43cb-ab3b-97108cae8651">
 
 ### Пример 6. 5000 символов
 
