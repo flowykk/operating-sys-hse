@@ -24,7 +24,119 @@
 
 ## Описание работы программы
 
+ В начале реализована функция `findSequence`, выполняющая необходимые для выполнения задачи действия.
+```cpp
+void findSequence(const char* input, int N, char* sequence) {
+    size_t length = strlen(input);
+    for (int i = 0; i <= length - N; ++i) {
+        bool found = true;
+        for (int j = i + 1; j < i + N; ++j) {
+            if (input[j] >= input[j - 1]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            for (int k = 0; k < N; ++k) {
+                sequence[k] = input[i + k];
+            }
+            sequence[N] = '\0';
+            return;
+        }
+    }
 
+    sequence[0] = '\0';
+}
+```
+
+В начале функции `main` считываются данные из терминала и происходит проверка числа `n`, которая была затронута выше.
+```cpp
+for (int i = 1; i < argc; i++) {
+    if (strcmp(argv[i], "-n") == 0) {
+        n = std::stoi(argv[++i]);
+        printf("Inputed n is %d\n", n);
+    } else if (strcmp(argv[i], "-in") == 0) {
+        input_file = argv[++i];
+    } else if (strcmp(argv[i], "-out") == 0) {
+        output_file = argv[++i];
+    }
+}
+if (n <= 0) {
+    printf("Number n must be > 0!");
+    printf("Program will use n = 1");
+    n = 1;
+}
+```
+
+Далее создаются два канала `fd1` и `fd2` при помощи `pipe`
+```cpp
+int fd1[2];
+int fd2[2];
+
+if (pipe(fd1) == -1) {
+    perror("pipe fd1");
+    exit(EXIT_FAILURE);
+}
+if (pipe(fd2) == -1) {
+    perror("pipe fd2");
+    exit(EXIT_FAILURE);
+}
+```
+
+Дальше идет большое ветвление `if`, которое отвечает за взаимодействие процессов между собой:
+```cpp
+pid_t pid1, pid2;
+pid1 = fork();
+if (pid1 < 0) {
+    perror("fork 1");
+    exit(EXIT_FAILURE);
+} else if (pid1 == 0) {
+  // work
+} else {
+  // work
+}
+```
+
+После этого Процессы 1 и 2 записывают данные в `fd1`, а Процесс 2 читает из `fd1` и записывает обработанные данные в `fd2`. 
+Процесс 3 в свою очередь читает данные из `fd2`.
+```cpp
+close(fd1[0]);
+close(fd2[0]);
+close(fd2[1]);
+
+
+int fd_write = fd1[1];
+```
+```cpp
+close(fd1[1]);
+close(fd2[0]);
+
+int fd_read = fd1[0];
+int fd_write = fd2[1];
+```
+```cpp
+close(fd1[0]);
+close(fd1[1]);
+close(fd2[1]);
+
+int fd_read = fd2[0];
+```
+```cpp
+write(fd_write, buffer, strlen(buffer) + 1);
+
+read(fd_read, buffer, sizeof(buffer));
+```
+
+Далее, если ни один обработчик ошибок не сработал, полученная Процессом 3 информация записывается в `output_file`
+```cpp
+FILE *fp = fopen(output_file, "w");
+if (fp == NULL) {
+    perror("open output file");
+    exit(EXIT_FAILURE);
+}
+fprintf(fp, "%s", buffer);
+fclose(fp);
+```
 
 ## Скриншоты демонстрирующие работу приложения через Терминал
 
