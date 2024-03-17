@@ -162,7 +162,7 @@ printf("Process 2 sent data: %s\n", buffer);
 ## Скриншоты демонстрирующие работу приложения через Терминал
 
 ### Пример 1. Некорректный ввод
-![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/e30f6288-e154-4bcb-9b63-bac9f6f43f19)
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/9c6662ef-7303-4ea9-8d8c-60f7e053a104)
 
 ### Пример 2 
 
@@ -170,10 +170,10 @@ printf("Process 2 sent data: %s\n", buffer);
 <img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a09ae7ba-a4d6-411e-9391-2c4311141828">
 
 #### Результат в терминале
-<img width="1084" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/caa77480-78c4-45d2-a8ce-685433f11908">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/1e9fe4da-7979-4124-b0a5-e68a9a030bbc)
 
 #### Содержимое output1.txt
-<img width="650" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/27d8314e-c5d3-49fd-a0df-07150226dac5">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/52e7205b-7dec-4e92-a73e-b934584b639c)
 
 ### Пример 3. N > длины строки в файле
 
@@ -181,21 +181,21 @@ printf("Process 2 sent data: %s\n", buffer);
 <img width="648" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/40719d22-182c-440a-bcb9-2647a0578e4b">
 
 #### Результат в терминале
-<img width="1081" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/fdde8837-24c4-4f81-b4c4-bb1fc158b632">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/4e709d33-c9b9-40df-8f51-aade213bb860)
 
 #### Содержимое output2.txt
-<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/8f2be92f-3ed4-40f9-826f-9abe902090a2">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/8e0017c5-fde8-4280-8e88-f4d2b6574f7a)
 
-### Пример 4. Пустой файл
+### Пример 4. Нет нужной последовательности
 
 #### Содержимое файла input3.txt 
-<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/9c2f6005-150d-4077-b2a4-031ba4e542d8">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/8f4a630c-f2a5-465d-8242-52411ba7f7a9)
 
 #### Результат в терминале
-<img width="1080" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/34a534bb-1a5e-4d5c-9710-cd3441acf22c">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/a65fbbf9-ae84-425e-8031-a92e44faa498)
 
 #### Содержимое output3.txt
-<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c5793740-638b-4e6d-8a7c-60719cfe96d8">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/c2d6fa03-b114-43e8-9772-9f610f4d8737)
 
 ### Пример 5. 1000 символов
 
@@ -203,7 +203,7 @@ printf("Process 2 sent data: %s\n", buffer);
 <img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c9e82c7c-2610-4814-8cde-df2514aac9ff">
 
 #### Результат в терминале
-![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/d0094d5a-3d44-40e2-bab9-747b9817e3eb)
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/2e612652-2a85-4fdb-a972-ef9f464ccc53)
 
 #### Содержимое output4.txt
 <img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9d334d2-ae51-43cb-ab3b-97108cae8651">
@@ -214,9 +214,9 @@ printf("Process 2 sent data: %s\n", buffer);
 <img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9ce4b24-fc1e-48fd-a19a-6e41d34c4fc5">
 
 #### Результат в терминале
-<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/11c19852-3a18-409d-8f18-a1dadc7c18a7">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/36a4f689-3786-4f30-bbff-926522af12a3)
 
-<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/0703dc66-e14a-4a32-9299-34a0ee6b1412">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/35e5dc23-feec-48c2-b96a-951a2eb39639)
 
 #### Содержимое output5.txt
-<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a2ee5f9f-b492-47c5-b2d0-3f577c15cd52">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/d80b3582-81a2-4e77-a512-0edb263a9088)
