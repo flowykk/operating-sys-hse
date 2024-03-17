@@ -211,7 +211,7 @@ printf("Process 2 sent data: %s\n", buffer);
 ### Пример 6. 5000 символов
 
 #### Содержимое файла input5.txt 
-<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9ce4b24-fc1e-48fd-a19a-6e41d34c4fc5">
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/906233d6-8411-4943-a488-59c1776ae04f)
 
 #### Результат в терминале
 ![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/36a4f689-3786-4f30-bbff-926522af12a3)
