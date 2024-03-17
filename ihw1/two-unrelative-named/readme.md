@@ -20,6 +20,68 @@
 
 ## Скриншоты демонстрирующие работу программ
 
+Считывание данных из терминала 
+```cpp
+for (int i = 1; i < argc; i++) {
+    if (strcmp(argv[i], "-in") == 0) {
+        input_file = argv[++i];
+    } else if (strcmp(argv[i], "-out") == 0) {
+        output_file = argv[++i];
+    }
+}
+```
+
+Открытие входного файла и обработка возможных ошибок
+```cpp
+int fd = open(input_file, O_RDONLY);
+if (fd < 0) {
+    printf("Can\'t open file for reading\n");
+    exit(-1);
+}
+read(fd, buffer, BUFFER_SIZE);
+close(fd);
+```
+
+Отправка данных Процессу 2 через канал `fifo1`
+```cpp
+fd = open(fifo1, O_WRONLY);
+write(fd, buffer, BUFFER_SIZE);
+close(fd);
+printf("Process 1 sent data: %s\n", buffer);
+```
+
+Принятие данных от Процесса 2 через канал `fifo2` и запись полученных данных в выходной файл
+```cpp
+fd = open(fifo2, O_RDONLY);
+read(fd, buffer, sizeof(buffer));
+close(fd);
+printf("Process 1 received data: %s\n", buffer);
+
+FILE *out_fp = fopen(output_file, "w");
+if (out_fp == NULL) {
+    perror("open output file");
+    exit(EXIT_FAILURE);
+}
+fprintf(out_fp, "%s", buffer);
+fclose(out_fp);
+```
+
+В свою очерель Процесс 2 получает данные от Процесса 1 по каналу `fifo1` и обрабатывает их
+```cpp
+int fd = open(fifo1, O_RDONLY);
+read(fd, buffer, BUFFER_SIZE);
+close(fd);
+
+findSequence(buffer, n, buffer);
+```
+
+После обработки Процесс 2 отправляет данные обратно по каналу `fifo2`
+```cpp
+fd = open(fifo2, O_WRONLY);
+write(fd, buffer, sizeof(buffer));
+close(fd);
+```
+
 ### Пример 1
 
 #### Результат в 1-ом окне терминала
