@@ -3,7 +3,7 @@
 ## Код программы
 
 - Код процесса 1 - [unrelative-process-1.cpp](unrelative-process-1.cpp)
-- Код процесса 1 - [unrelative-process-2.cpp](unrelative-process-2.cpp)
+- Код процесса 2 - [unrelative-process-2.cpp](unrelative-process-2.cpp)
 
 ## Тестовые данные программы
 
