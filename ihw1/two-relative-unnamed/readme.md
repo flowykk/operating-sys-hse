@@ -166,9 +166,6 @@ printf("Process 2 sent data: %s\n", buffer);
 
 ### Пример 2 
 
-#### Ввод в терминале 
-<img width="1085" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/472fa8ae-64e2-4d15-ac21-03bb30c47a11">
-
 #### Содержимое файла input1.txt 
 <img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a09ae7ba-a4d6-411e-9391-2c4311141828">
 
@@ -179,9 +176,6 @@ printf("Process 2 sent data: %s\n", buffer);
 <img width="650" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/27d8314e-c5d3-49fd-a0df-07150226dac5">
 
 ### Пример 3. N > длины строки в файле
-
-#### Ввод в терминале 
-<img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5494d4a9-5621-4fda-9a6e-2094850dfaf0">
 
 #### Содержимое файла input2.txt 
 <img width="648" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/40719d22-182c-440a-bcb9-2647a0578e4b">
@@ -194,9 +188,6 @@ printf("Process 2 sent data: %s\n", buffer);
 
 ### Пример 4. Пустой файл
 
-#### Ввод в терминале 
-<img width="1086" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/3ec4c5f2-5965-43c9-b611-d793451d7fe8">
-
 #### Содержимое файла input3.txt 
 <img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/9c2f6005-150d-4077-b2a4-031ba4e542d8">
 
@@ -208,9 +199,6 @@ printf("Process 2 sent data: %s\n", buffer);
 
 ### Пример 5. 1000 символов
 
-#### Ввод в терминале 
-![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/ef7631e8-bcf5-4520-8ed1-5c94404b2ae2)
-
 #### Содержимое файла input4.txt 
 <img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/c9e82c7c-2610-4814-8cde-df2514aac9ff">
 
@@ -221,9 +209,6 @@ printf("Process 2 sent data: %s\n", buffer);
 <img width="649" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9d334d2-ae51-43cb-ab3b-97108cae8651">
 
 ### Пример 6. 5000 символов
-
-#### Ввод в терминале 
-<img width="1082" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5af77554-3bb5-4465-b9fc-261e54651c40">
 
 #### Содержимое файла input5.txt 
 <img width="1083" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e9ce4b24-fc1e-48fd-a19a-6e41d34c4fc5">
