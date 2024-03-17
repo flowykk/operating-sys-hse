@@ -97,38 +97,49 @@ if (pid1 < 0) {
 }
 ```
 
-После этого Процессы 1 и 2 записывают данные в `fd1`, а Процесс 2 читает из `fd1` и записывает обработанные данные в `fd2`. 
-Процесс 3 в свою очередь читает данные из `fd2`.
+Процесс 1 открывает указанный в командной строке файл для чтения. Далее, считывает содержимое файла в буфер
 ```cpp
-close(fd1[0]);
-close(fd2[0]);
-close(fd2[1]);
-
-
-int fd_write = fd1[1];
+FILE *fp = fopen(input_file, "r");
+if (fp == NULL) {
+    perror("open input file");
+    exit(EXIT_FAILURE);
+}
+fgets(buffer, sizeof(buffer), fp);
+fclose(fp);
 ```
-```cpp
-close(fd1[1]);
-close(fd2[0]);
 
-int fd_read = fd1[0];
-int fd_write = fd2[1];
-```
-```cpp
-close(fd1[0]);
-close(fd1[1]);
-close(fd2[1]);
-
-int fd_read = fd2[0];
-```
+Далее Процесс 1 отправляет данные через канал 1
 ```cpp
 write(fd_write, buffer, strlen(buffer) + 1);
-
-read(fd_read, buffer, sizeof(buffer));
+printf("Process 1 sent data: %s\n", buffer);
+close(fd_write);
 ```
 
-Далее, если ни один обработчик ошибок не сработал, полученная Процессом 3 информация записывается в `output_file`
+Когда работа переходит Процессу 2, он считывает данные из канала `fd1`
 ```cpp
+read(fd_read, buffer, sizeof(buffer));
+printf("Process 2 received data: %s\n", buffer);
+close(fd_read);
+```
+
+Далее Процесс 2 вызывает `findSequence` для полученных данных и отправляет их через канал `fd2`
+```cpp
+findSequence(buffer, n, buffer);
+if (buffer[0] == '\0') {
+    strcpy(buffer, "No such sequence found.");
+}
+
+write(fd_write, buffer, strlen(buffer) + 1);
+printf("Process 2 sent data: %s\n", buffer);
+close(fd_write);
+```
+
+Процесс 3 получает данные из `fd2` и записывает их в указанный в аргумент командной строки выходной файл
+```cpp
+read(fd_read, buffer, sizeof(buffer));
+printf("Process 3 received data: %s\n", buffer);
+close(fd_read);
+
 FILE *fp = fopen(output_file, "w");
 if (fp == NULL) {
     perror("open output file");
