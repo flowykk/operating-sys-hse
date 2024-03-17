@@ -9,11 +9,11 @@
 
 ## Код программы
 
-Файл программы - [three-relative-unnamed.cpp](three-relative-unnamed.cpp)
+Файл программы - [three-relative-unnamed.cpp](two-relative-unnamed.cpp)
 
 ## Тестовые данные программы
 
-Тестовые данные находятся в папке [Data](three-relative-unnamed/Data/)
+Тестовые данные находятся в папке [Data](two-relative-unnamed/Data/)
 
 ## Описание входных данных
 
