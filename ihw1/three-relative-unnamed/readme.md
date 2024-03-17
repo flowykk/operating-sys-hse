@@ -169,7 +169,7 @@ fclose(fp);
 <img width="1081" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/fdde8837-24c4-4f81-b4c4-bb1fc158b632">
 
 #### Содержимое output2.txt
-<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/be0691a9-d336-48c5-82dd-fb3e0df09836">
+<img width="647" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/8f2be92f-3ed4-40f9-826f-9abe902090a2">
 
 ### Пример 4. Пустой файл
 
