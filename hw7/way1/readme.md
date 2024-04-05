@@ -1,3 +1,2 @@
 ![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/b9f9de2e-ad33-4b32-a918-65d651de15a1)
-![Uploading image.png…]()
-
+![image](https://github.com/flowykk/operating-sys-hse/assets/71427624/0ea99d85-89b1-45fd-b230-4cad107ea252)
