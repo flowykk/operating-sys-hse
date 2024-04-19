@@ -47,3 +47,15 @@ void fight(Fighter& fighter1, Fighter& fighter2, sem_t& semaphore) {
 void finalFight(std::vector<Fighter>& fighters, sem_t& semaphore) {
     // ...
 }
+
+## Скриншоты, демонстрирующие работу программы 
+
+### Пример работы программ на оценки 4-7
+
+![Снимок экрана 2024-04-19 в 17 18 43](https://github.com/flowykk/operating-sys-hse/assets/71427624/b207d423-9e35-4ccd-a808-453385feeda0)
+
+### Пример работы программ на оценки 8+
+
+![Снимок экрана 2024-04-19 в 17 17 19](https://github.com/flowykk/operating-sys-hse/assets/71427624/a01a4e9e-38f7-4daa-8fbf-65c6da32573b)
+
+![Снимок экрана 2024-04-19 в 17 17 40](https://github.com/flowykk/operating-sys-hse/assets/71427624/7f3218cf-3232-4806-a3ca-fe883ecb5c0c)
