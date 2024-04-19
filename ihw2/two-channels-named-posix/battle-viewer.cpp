@@ -17,7 +17,7 @@ int main() {
 
     char buffer[2];
     while (read(fight_channel, buffer, 2) > 0) {
-        std::cout << "Бой " << buffer[0] << " завершен." << std::endl;
+        std::cout << buffer[0] << std::endl;
     }
 
     close(fight_channel);
