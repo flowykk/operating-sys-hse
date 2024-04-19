@@ -1,11 +1,13 @@
 #include <iostream>
-#include <thread>
-#include <semaphore.h>
-#include <fcntl.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+#include <sys/shm.h>
 #include <vector>
 #include <random>
 #include <chrono>
+#include <thread>
 
 const int numFighters = 6;
 const char* SEMAPHORE_NAME = "/fighter_semaphore";
@@ -17,8 +19,15 @@ struct Fighter {
     explicit Fighter(int str) : strength(str), defeated(false) {}
 };
 
-void fight(Fighter& fighter1, Fighter& fighter2, sem_t* semaphore) {
-    std::this_thread::sleep_for(std::chrono::milliseconds (fighter2.strength / fighter1.strength * 1000));
+void fight(Fighter& fighter1, Fighter& fighter2, int semid, int* count_array) {
+    struct sembuf mybuf;
+    mybuf.sem_num = 0;
+    mybuf.sem_flg = 0;
+    mybuf.sem_op  = -1;
+    semop(semid, &mybuf, 1);
+
+    ++count_array[0]; // Increase count of fights
+    std::this_thread::sleep_for(std::chrono::milliseconds(fighter2.strength / fighter1.strength * 1000));
 
     printf("Бой: Боец с силой %d против бойца с силой %d\n", fighter1.strength, fighter2.strength);
     if (fighter1.strength > fighter2.strength) {
@@ -31,10 +40,11 @@ void fight(Fighter& fighter1, Fighter& fighter2, sem_t* semaphore) {
         printf("Победитель: Боец с силой %d; Новая сила: %d\n", fighter2.strength - fighter1.strength, fighter2.strength);
     }
 
-    sem_post(semaphore);
+    mybuf.sem_op  = 1;
+    semop(semid, &mybuf, 1);
 }
 
-void finalFight(const std::vector<Fighter>& fighters, sem_t* semaphore) {
+void finalFight(std::vector<Fighter>& fighters, int semid, int* count_array) {
     int winner1_idx = -1, winner2_idx = -1;
     for (int i = 0; i < numFighters; ++i) {
         if (!fighters[i].defeated) {
@@ -48,22 +58,25 @@ void finalFight(const std::vector<Fighter>& fighters, sem_t* semaphore) {
     }
 
     if (winner1_idx != -1 && winner2_idx != -1) {
-        std::thread fight_thread(fight, std::ref(const_cast<Fighter&>(fighters[winner1_idx])), std::ref(const_cast<Fighter&>(fighters[winner2_idx])), semaphore);
-        fight_thread.join();
-        sem_wait(semaphore);
-        std::cout << "Финальный бой: Боец " << winner1_idx + 1 << " против Бойца " << winner2_idx + 1 << std::endl;
+        fight(fighters[winner1_idx], fighters[winner2_idx], semid, count_array);
+        std::cout << "Финальный бой: Боец " << winner1_idx + 1 << " vs Бойца " << winner2_idx + 1 << std::endl;
     }
 }
 
 int main() {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(1, 100);
+    key_t sem_key = ftok(SEMAPHORE_NAME, 0);
+    int semid = semget(sem_key, 1, 0666 | IPC_CREAT);
+    semctl(semid, 0, SETVAL, 1);
+
+    const int array_size = 4;
+    key_t shm_key = ftok(".", 'a');
+    int shmid = shmget(shm_key, sizeof(int) * array_size, 0666 | IPC_CREAT);
+    int* count_array = (int*)shmat(shmid, NULL, 0);
 
     std::vector<Fighter> fighters;
     for (int i = 0; i < numFighters; ++i) {
         int strength;
-        printf("Введите энергию Ций бойца %d: ", i + 1);
+        std::cout << "Введите энергию Ций бойца " << i + 1 << ": ";
         std::cin >> strength;
         fighters.emplace_back(strength);
     }
@@ -74,31 +87,20 @@ int main() {
     }
     printf("\n");
 
-    sem_t* semaphore = sem_open(SEMAPHORE_NAME, O_CREAT, 0666, 0);
-    if (semaphore == SEM_FAILED) {
-        std::cerr << "Ошибка создания семафора." << std::endl;
-        return 1;
-    }
+    // Первый бой
+    fight(fighters[0], fighters[1], semid, count_array);
+    // Второй бой
+    fight(fighters[2], fighters[3], semid, count_array);
+    // Третий бой
+    fight(fighters[4], fighters[5], semid, count_array);
 
-    std::thread fights[3];
-    for (int i = 0; i < 3; ++i) {
-        fights[i] = std::thread(fight, std::ref(fighters[i * 2]), std::ref(fighters[i * 2 + 1]), semaphore);
-    }
-
-    for (int i = 0; i < 3; ++i) {
-        sem_wait(semaphore);
-    }
-
-    for (int i = 0; i < 3; ++i) {
-        fights[i].join();
-    }
-
-    finalFight(fighters, semaphore);
+    // Четвертый // Пятый бой
+    finalFight(fighters, semid, count_array);
 
     int winner_strength = -1;
-    for (int i = 0; i < fighters.size(); i++) {
-        if (!fighters[i].defeated) {
-            winner_strength = fighters[i].strength;
+    for (const auto& fighter : fighters) {
+        if (!fighter.defeated) {
+            winner_strength = fighter.strength;
             break;
         }
     }
@@ -108,8 +110,9 @@ int main() {
         std::cout << "Все бойцы были побеждены." << std::endl;
     }
 
-    sem_close(semaphore);
-    sem_unlink(SEMAPHORE_NAME);
+    shmdt(count_array);
+    shmctl(shmid, IPC_RMID, NULL);
+    semctl(semid, 0, IPC_RMID);
 
     return 0;
 }
