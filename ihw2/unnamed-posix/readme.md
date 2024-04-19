@@ -87,5 +87,4 @@ if (winner_strength != -1) {
 ```
 
 ## Пример выполнения программы
-
-![Снимок экрана 2024-04-19 в 12 42 30](https://github.com/flowykk/operating-sys-hse/assets/71427624/b34e272e-c640-4a11-a353-1cb3f9abbe70)
+![Снимок экрана 2024-04-19 в 13 13 14](https://github.com/flowykk/operating-sys-hse/assets/71427624/72e40b97-87f7-4ecc-9c1d-35e8d0a3a2b4)
