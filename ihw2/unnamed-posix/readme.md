@@ -59,6 +59,3 @@ if (winner_strength != -1) {
     std::cout << "Все бойцы были побеждены." << std::endl;
 }
 ```
-
-## Пример выполнения программы
-![Снимок экрана 2024-04-19 в 13 14 53](https://github.com/flowykk/operating-sys-hse/assets/71427624/626a35d5-1d5d-453d-8dc3-503d5f79b402)
