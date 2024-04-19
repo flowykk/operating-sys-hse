@@ -68,9 +68,17 @@ int main() {
 
     std::vector<Fighter> fighters;
     for (int i = 0; i < numFighters; ++i) {
-        int strength = dis(gen);
+        int strength;
+        printf("Введите энергию Ций бойца %d: ", i + 1);
+        std::cin >> strength;
         fighters.emplace_back(strength);
     }
+
+    printf("\nИнформация об энергиях Ций бойцов:\n");
+    for (int i = 0; i < numFighters; ++i) {
+        printf("Боец %d: %d\n", i + 1, fighters[i].strength);
+    }
+    printf("\n");
 
     for (int i = 0; i < numFighters; ++i) {
         printf("Боец %d: %d\n", i + 1, fighters[i].strength);
