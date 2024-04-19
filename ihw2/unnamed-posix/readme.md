@@ -19,32 +19,6 @@
   
 ## Описание кода программы
 
-Для модели бойцов используется структура Fighter, которая содержит в полях всю необходимую информацию об определенном бойце.
-```cpp
-struct Fighter {
-    int strength;
-    bool defeated;
-
-    explicit Fighter(int str) : strength(str), defeated(false) {}
-};
-```
-
-Функция `fight` моделирует бой между двумя бойцами. Она засыпает на время, равное доле силы бойца 2 относительно силы бойца 1. После этого определяет победителя, опираясь на силы бойцов и обновляет его силу. Семафор `semaphore` используется для синхронизации доступа к общим данным.
-```cpp
-void fight(Fighter& fighter1, Fighter& fighter2, sem_t& semaphore) {
-    std::this_thread::sleep_for(std::chrono::milliseconds (fighter2.strength / fighter1.strength * 1000));
-
-    sem_wait(&semaphore);
-    // ...
-    sem_post(&semaphore);
-}
-```
-
-Функция `finalFight` определяет победителей первых трех боев и устраивает между ними финальные поединки. Она также использует семафор для синхронизации доступа к общим данным.
-void finalFight(std::vector<Fighter>& fighters, sem_t& semaphore) {
-    // ...
-}
-
 Ввод необходимых данных.
 ```cpp
  std::vector<Fighter> fighters;
