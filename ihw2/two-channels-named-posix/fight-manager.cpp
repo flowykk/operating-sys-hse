@@ -61,6 +61,21 @@ int main() {
     fight(fighters[2], fighters[3], fight_channel);
     fight(fighters[4], fighters[5], fight_channel);
 
+    finalFight(fighters, semaphore);
+
+    int winner_strength = -1;
+    for (const auto& fighter : fighters) {
+        if (!fighter.defeated) {
+            winner_strength = fighter.strength;
+            break;
+        }
+    }
+    if (winner_strength != -1) {
+        std::cout << "Сила победителя соревнования: " << winner_strength << std::endl;
+    } else {
+        std::cout << "Все бойцы были побеждены." << std::endl;
+    }
+
     close(fight_channel);
     unlink(FIGHT_CHANNEL);
 
