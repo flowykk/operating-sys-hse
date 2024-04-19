@@ -50,12 +50,18 @@ void finalFight(std::vector<Fighter>& fighters, sem_t& semaphore) {
 
 ## Скриншоты, демонстрирующие работу программы 
 
-### Пример работы программ на оценки 4-7
+### Примеры работы программ на оценки 4-7
 
+#### Пример 1
 ![Снимок экрана 2024-04-19 в 17 18 43](https://github.com/flowykk/operating-sys-hse/assets/71427624/b207d423-9e35-4ccd-a808-453385feeda0)
+
+#### Пример 2
+![Снимок экрана 2024-04-19 в 17 19 56](https://github.com/flowykk/operating-sys-hse/assets/71427624/f6873f96-3133-4e08-b392-a4dcb1190d69)
 
 ### Пример работы программ на оценки 8+
 
+#### Терминал при запуске Программы 1
 ![Снимок экрана 2024-04-19 в 17 17 19](https://github.com/flowykk/operating-sys-hse/assets/71427624/a01a4e9e-38f7-4daa-8fbf-65c6da32573b)
 
+#### Терминал при запуске Программы 2
 ![Снимок экрана 2024-04-19 в 17 17 40](https://github.com/flowykk/operating-sys-hse/assets/71427624/7f3218cf-3232-4806-a3ca-fe883ecb5c0c)
