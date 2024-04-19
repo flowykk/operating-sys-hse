@@ -34,6 +34,25 @@ void fight(Fighter& fighter1, Fighter& fighter2, int fight_channel) {
     write(fight_channel, "1", 1);
 }
 
+void finalFight(const std::vector<Fighter>& fighters, int fight_channel) {
+    int winner1_idx = -1, winner2_idx = -1;
+    for (int i = 0; i < numFighters; ++i) {
+        if (!fighters[i].defeated) {
+            if (winner1_idx == -1) {
+                winner1_idx = i;
+            } else {
+                winner2_idx = i;
+                break;
+            }
+        }
+    }
+
+    if (winner1_idx != -1 && winner2_idx != -1) {
+        printf("Финальный бой: Боец %d против Бойца %d\n", winner1_idx + 1, winner2_idx + 1);
+        fight(const_cast<Fighter&>(fighters[winner1_idx]), const_cast<Fighter&>(fighters[winner2_idx]), fight_channel);
+    }
+}
+
 int main() {
     mkfifo(FIGHT_CHANNEL, 0666);
 
@@ -61,20 +80,7 @@ int main() {
     fight(fighters[2], fighters[3], fight_channel);
     fight(fighters[4], fighters[5], fight_channel);
 
-    finalFight(fighters, semaphore);
-
-    int winner_strength = -1;
-    for (const auto& fighter : fighters) {
-        if (!fighter.defeated) {
-            winner_strength = fighter.strength;
-            break;
-        }
-    }
-    if (winner_strength != -1) {
-        std::cout << "Сила победителя соревнования: " << winner_strength << std::endl;
-    } else {
-        std::cout << "Все бойцы были побеждены." << std::endl;
-    }
+    finalFight(fighters, fight_channel);
 
     close(fight_channel);
     unlink(FIGHT_CHANNEL);
