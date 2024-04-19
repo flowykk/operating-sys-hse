@@ -3,6 +3,7 @@
 ## Код программы
 
 Файл программы с логикой проведения соревнования - [fight-manager.cpp](fight-manager.cpp)
+
 Файл программы с логикой вывода информации о поединках - [battle-viewer.cpp](battle-viewer.cpp)
 
 ## Описание входных данных
@@ -18,7 +19,15 @@
   
 ## Описание кода программы
 
-Запускается три потока fights, каждый из которых отвечает за проведение одного боя.
+Сначала создается именованный канал `FIGHT_CHANNEL`, который будет использоваться в программе далее.
+```cpp
+//...
+const char* FIGHT_CHANNEL = "/tmp/fight_channel";
+mkfifo(FIGHT_CHANNEL, 0666);
+//...
+```
+
+Запускается три потока `fights`, каждый из которых отвечает за проведение одного боя.
 ```cpp
 sem_t* semaphore;
 semaphore = sem_open(SEMAPHORE_NAME, O_CREAT, 0666, 0);
@@ -28,3 +37,24 @@ for (int i = 0; i < 3; ++i) {
     fights[i] = std::thread(fight, std::ref(fighters[i * 2]), std::ref(fighters[i * 2 + 1]), semaphore);
 }
 ```
+
+Вторая программа открывает именованный канал `FIGHT_CHANNEL` для чтения результатов боев.
+```cpp
+//...
+int fd = open(FIGHT_CHANNEL, O_RDONLY);
+//...
+```
+
+Далее считываются индексы победителей из именованного канала и выводит информацию о боях на экран.
+```cpp
+int fighterIndex;
+while (read(fd, &fighterIndex, sizeof(int)) > 0) {
+    std::cout << "Победитель боя: Боец " << fighterIndex + 1 << std::endl;
+}
+```
+
+```cpp
+//...
+close(fd);
+```
+В конце программы происходит закрытие именованного канала после того, как все результаты боев были считаны и выведены на экран.
