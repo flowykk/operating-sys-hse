@@ -38,15 +38,12 @@ int main(int argc, char *argv[]) {
     printf("Waiting for the server to send data...\n");
 
     for(;;) {
-        // Receive data from the server
         if ((totalBytesRcvd = recv(sock, buffer, BUFFSIZE - 1, 0)) <= 0) {
             DieWithError("Failed to receive initial bytes from server");
         }
 
-        // Null-terminate the totalBytesRcvd data
         buffer[totalBytesRcvd] = '\0';
 
-        // Print out the totalBytesRcvd data
         printf("Received: %s", buffer);
 
         if (strcmp(buffer, "clear\n") == 0) {
