@@ -24,7 +24,7 @@
 
 ### Действия сервера
 
-<img width="730" alt="Снимок экрана 2024-05-18 в 19 54 34" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/621a63ef-d448-49ce-bb0d-878ff7c2e6cf">
+<img width="730" alt="Снимок экрана 2024-05-18 в 20 00 56" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/085337e0-06b8-40f0-bb1b-10e83e12a980">
 
 ### Действия клиента №2
 
