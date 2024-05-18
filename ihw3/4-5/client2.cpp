@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
         printf("Received: %s", buffer);
 
         messegesReceived++;
-        if (strcmp(buffer, "clear\n") == 0 || messegesReceived >= 6) {
+        if (messegesReceived >= 6) {
             close(sock);
             break;
         }
