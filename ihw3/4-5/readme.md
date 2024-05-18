@@ -3,7 +3,9 @@
 ## Код программы
 
 Клиент №1 - [client.cpp](client.cpp)
+
 Клиент №2 - [client2.cpp](client2.cpp)
+
 Сервер - [server.cpp](server.cpp)
 
 ## Описание входных данных
