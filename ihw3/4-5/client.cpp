@@ -49,10 +49,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-
-    if (strcmp(buffer, "clear\n") == 0) {
-        close(sock);
-    }
-
+    close(sock);
     return 0;
 }
