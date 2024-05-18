@@ -21,7 +21,7 @@
 
 `Клиент №1`
 
-Сначала `Клиент №1` подключается к серверу
+Сначала `Клиент №1` подключается к серверу.
 ```cpp
 if (connect(sock, (struct sockaddr *) &echoServAddr, sizeof(echoServAddr)) < 0) {
       DieWithError("Failed to connect with server");
@@ -48,6 +48,89 @@ close(sock);
 return 0;
 ```
 
+`Сервер`
+В бесконечном цикле `Сервер` ожидает, пока два клиента подключатся к нему, и выводит об этом сообщение
+```cpp
+if ((clientsock1 = accept(serversock, (struct sockaddr *) &echoClient, &recvMsgSize)) < 0) {
+      DieWithError("Failed to accept client connection");
+  } else {
+      fprintf(stdout, "Client connected: %s\n", inet_ntoa(echoClient.sin_addr));
+  }
+
+  if ((clientsock2 = accept(serversock, (struct sockaddr *) &echoClient, &recvMsgSize)) < 0) {
+      DieWithError("Failed to accept client connection");
+  } else {
+      fprintf(stdout, "Client2 connected: %s\n", inet_ntoa(echoClient.sin_addr));
+  }
+```
+
+Далее `Сервер` получает сообщение от `Клиента №1` и выводит об этом сообщение
+```cpp
+if ((totalBytesRcvd = recv(clientsock1, buffer, BUFFSIZE, 0)) < 0) {
+      DieWithError("Failed to receive initial bytes from client");
+  }
+  buffer[totalBytesRcvd] = '\0';
+```
+
+В цикле `while` полученние сообщение отправляется `Клиенту №2`. Переменная `messegesReceived` отражает количество полученных на данный момент времени сообщений, при достижении нужного значения программа завершается.
+```cpp
+while (totalBytesRcvd > 0) {
+      messegesReceived++;
+      if (send(clientsock2, buffer, totalBytesRcvd, 0) != totalBytesRcvd) {
+          DieWithError("Failed to send bytes to client");
+      } else {
+          fprintf(stdout, "Handling server\n");
+          printf("%d", messegesReceived);
+      }
+      
+      if (strcmp(buffer, "clear\n") == 0 || messegesReceived >= 6) {
+          flag = true;
+          break;
+      }
+      
+      if ((totalBytesRcvd = recv(clientsock1, buffer, BUFFSIZE, 0)) < 0) {
+          DieWithError("Failed to receive additional bytes from client");
+      }
+      buffer[totalBytesRcvd] = '\0';
+}
+```
+
+В  конце сокеты для обоих клиентов закрыавются, а программа завершается.
+```cpp
+close(clientsock1);
+close(clientsock2);
+return 0;
+```
+
+`Клиент №2`
+
+Сначала `Клиент №2` подключается к серверу, после чего выводится сообщение об ожидании ввода данных.
+```cpp
+if (connect(sock, (struct sockaddr *) &echoServAddr, sizeof(echoServAddr)) < 0) {
+  DieWithError("Failed to connect with server");
+}
+printf("Waiting for the server to send data...\n");
+```
+
+Далее идет бесконечный цикл, внутри которого происходит обработка данных от `Клиента №1`. 
+`totalBytesRcvd` - байты данных, которые данные клиент получает от `Cервера`, после чего на экран выводится соответствующее сообщение, а `messegesReceived` - количество полученных на данный момент сообщений, при достижении определенного значения программа завершается, а сокет закрывается.
+```cpp
+for(;;) {
+  if ((totalBytesRcvd = recv(sock, buffer, BUFFSIZE - 1, 0)) <= 0) {
+      DieWithError("Failed to receive initial bytes from server");
+  }
+
+  buffer[totalBytesRcvd] = '\0';
+
+  printf("Received: %s", buffer);
+
+  messegesReceived++;
+  if (messegesReceived >= 6) {
+      close(sock);
+      break;
+  }
+}
+```
 
 ## Скриншоты, демонстрирующие работу программы
 
