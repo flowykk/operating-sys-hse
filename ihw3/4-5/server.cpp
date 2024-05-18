@@ -65,10 +65,6 @@ int main(int argc, char *argv[]) {
             DieWithError("Failed to receive initial bytes from client");
         }
         buffer[totalBytesRcvd] = '\0';
-
-        if (strcmp(buffer, "clear\n") == 0) {
-            break;
-        }
         bool flag = false;
 
         while (totalBytesRcvd > 0) {
@@ -80,7 +76,7 @@ int main(int argc, char *argv[]) {
                 printf("%d", messegesReceived);
             }
 
-            if (strcmp(buffer, "clear\n") == 0 || messegesReceived >= 6) {
+            if (messegesReceived >= 6) {
                 flag = true;
                 break;
             }
@@ -89,7 +85,6 @@ int main(int argc, char *argv[]) {
                 DieWithError("Failed to receive additional bytes from client");
             }
             buffer[totalBytesRcvd] = '\0';
-
         }
 
         if (flag) {
@@ -97,6 +92,7 @@ int main(int argc, char *argv[]) {
         }
 
     }
+
     close(clientsock1);
     close(clientsock2);
     return 0;
