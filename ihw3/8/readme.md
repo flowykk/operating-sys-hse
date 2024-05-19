@@ -16,23 +16,75 @@
 
 ## Описание алгоритма работы программы
 
-- `Клиент №1` предлагает клиенту ввести энергию Ций каждого из бойцов
-- `Сервер` получает введённые данные и перенаправляет эти данные `Клиенту №2`, а также выводит сообщение об этом
-- `Клиент №2` получает данные от `Сервера` и выводит данные на экран, а также отправляет их `Клиенту 3` для симуляции соревнований
-- `Клиент №3` получает эти данные и проводит симуляцию соревнований, используя помощи именнованные POSIX-семафоры
-- `Клиент №3` завершает работу, когда заканчивается финальный бой
-- Когда пользователь вводит последнее число, означающее энергию Ций, `Клиент №1`, `Клиент №2` и `Сервер` завершают свою работу
+- `Клиент №1` предлагает клиенту ввести суммарное количество будущих клиентов, а далее - энергию Ций каждого из бойцов
+- Далее алгоритм работы идентичен алгоритму работы приложения на оценку [6-7](../6-7), но теперь поддерживается подключение множества клиентов
 
 ## Описание кода программы
 
-`Клиент №2`, `Клиент №1` - идентичны коду на оценку [4-5](../4-5) 
+`Клиент №2`, `Клиент №1` - идентичны коду на оценку [4-5](../4-5). Единтвенное для `Клиента №1` добавлена возможность ввода будущего количества клиентов.
+```cpp
+for (int i = 0; i < n; i++) {
+    if (i == 0)
+        printf("Enter number of future clients: ");
+    else
+        printf("Enter Ci-energy of fighter %d: ", i);
+
+    fgets(buffer, BUFFSIZE, stdin);
+    recvMsgSize = strlen(buffer);
+
+    if (send(sock, buffer, recvMsgSize, 0) != recvMsgSize) {
+        DieWithError("Mismatch in number of sent bytes");
+    }
+}
+```
 
 `Клиент №3` - идентичен коду на оценку [6-7](../6-7) 
 
+`Сервер` теперь содержит массив сокетов клиентов `clients`, куда записываются сокеты каждого из клиентов при помощи цикла
+```cpp
+for (int i = 0; i < numberOfClients - 1; i++) {
+    clients[i] = AcceptTCPClient(serversock);
+}
+```
 
-## !!!
+`AcceptTCPClient(..)` - функция, позволяющая подключить определённого клиента к серверу.
+```cpp
+int AcceptTCPClient(int servSock) {
+    int clntSock;                    /* Socket descriptor for client */
+    struct sockaddr_in echoClntAddr; /* Client address */
+    unsigned int clntLen;            /* Length of client address data structure */
 
-Все объяснения работы функций `fight(..)`, `finalFight(..)`, работа с семафорами и т.д. были подробно приведены в [ИДЗ №2](../../ihw2)
+    clntLen = sizeof(echoClntAddr);
+
+    if ((clntSock = accept(servSock, (struct sockaddr *) &echoClntAddr, &clntLen)) < 0)
+        DieWithError("accept() failed");
+
+    printf("Handling client %s\n", inet_ntoa(echoClntAddr.sin_addr));
+
+    return clntSock;
+}
+```
+
+Далее в цлике `while` полученные данные уже отправляются каждому из клиентов `clients[i]` при помощи цикла `for`.
+```cpp
+while (totalBytesRcvd > 0) {
+    messegesReceived++;
+    if ((totalBytesRcvd = recv(clientsock1, buffer, BUFFSIZE, 0)) < 0) {
+        DieWithError("Failed to receive additional bytes from client");
+    }
+    buffer[totalBytesRcvd] = '\0';
+
+    for (int i = 0; i < numberOfClients - 1; i++) {
+        if (send(clients[i], buffer, totalBytesRcvd, 0) != totalBytesRcvd) {
+            DieWithError("Failed to send bytes to client");
+        } else {
+            fprintf(stdout, "Handling server\n");
+        }
+    }
+
+    // ...
+}
+```
 
 ## Скриншоты, демонстрирующие работу программы
 
