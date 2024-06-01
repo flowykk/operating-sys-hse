@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
     echoServAddr.sin_addr.s_addr = inet_addr(argv[1]);
     echoServAddr.sin_port = htons(atoi(argv[2]));
 
-    int n = 6; // Number of fighters
+    int n = 6;
     for (int i = 0; i < n; i++) {
         printf("Enter Ci-energy of fighter %d: ", i + 1);
         fgets(buffer, BUFFSIZE, stdin);
