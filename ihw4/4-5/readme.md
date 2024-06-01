@@ -18,7 +18,49 @@
 
 ## Описание кода программы
 
+`Клиент`:
 
+Самое важная логика программы происходит в цикле `for`, где пользователь вводит значение энергии Ций для каждого бойца. При помощи команды `sendto` информация отправляется `Серверу`.
+```cpp
+int n = 6;
+for (int i = 0; i < n; i++) {
+    printf("Enter Ci-energy of fighter %d: ", i + 1);
+    fgets(buffer, BUFFSIZE, stdin);
+    echolen = strlen(buffer);
+
+    if (sendto(sock, buffer, echolen, 0, (struct sockaddr *)&echoServAddr, sizeof(echoServAddr)) != echolen) {
+        DieWithError("Mismatch in number of sent bytes");
+    }
+}
+```
+
+`Сервер`:
+
+Сначала сокет сервера биндится, чтобы к нему могли подключиться клиенты.
+```cpp
+if (bind(serversock, (struct sockaddr *) &echoServAddr, sizeof(echoServAddr)) < 0) {
+    DieWithError("Failed to bind the server socket");
+} else {
+    fprintf(stdout, "Server socket binded\n");
+}
+```
+
+Далее в бесконечнои цикле `Cервер` получает информацию от `Клиента` и выводит сообщение об этом на экран.
+```cpp
+while (true) {
+    if ((recvMsgSize = recvfrom(serversock, buffer, BUFFSIZE - 1, 0, (struct sockaddr *)&echoClntAddr, &clntAddrLen)) < 0) {
+        DieWithError("Failed to receive bytes from client");
+    }
+
+    buffer[recvMsgSize] = '\0'; // Null-terminate the received data
+    printf("Received: %s", buffer);
+    messagesReceived++;
+
+    if (messagesReceived >= 6) {
+        break;
+    }
+}
+```
 
 ## Скриншоты, демонстрирующие работу программы
 
