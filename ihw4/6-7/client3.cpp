@@ -129,12 +129,10 @@ int main(int argc, char *argv[]) {
     printf("Waiting for the server to send data...\n");
 
     for(;;) {
-        // Receive data from the server
         if ((totalBytesRcvd = recvfrom(sock, buffer, BUFFSIZE - 1, 0, (struct sockaddr *) &fromAddr, &fromSize)) <= 0) {
             DieWithError("Failed to receive initial bytes from server");
         }
 
-        // Null-terminate the totalBytesRcvd data
         buffer[totalBytesRcvd] = '\0';
 
         int energy = std::atoi(buffer);
