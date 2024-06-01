@@ -22,8 +22,8 @@
 
 ### Действия клиента
 
-<img width="730" alt="Снимок экрана 2024-06-01 в 14 10 13" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5ff45dc3-74b8-4163-88b0-099156aa42bd">
+<img width="730" alt="Снимок экрана 2024-06-01 в 14 10 01" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a3add50b-6250-48e2-adc4-1197718f0863">
 
 ### Действия сервера
 
-<img width="730" alt="Снимок экрана 2024-06-01 в 14 10 01" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/a3add50b-6250-48e2-adc4-1197718f0863">
+<img width="730" alt="Снимок экрана 2024-06-01 в 14 10 13" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/5ff45dc3-74b8-4163-88b0-099156aa42bd">
