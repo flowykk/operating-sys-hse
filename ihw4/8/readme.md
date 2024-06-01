@@ -90,20 +90,21 @@ while (true) {
 
 ### Действия клиента №1
 
-
+<img width="730" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/23ec7bef-6613-4fd9-a4f4-0b977644f354">
 
 ### Действия сервера
 
-
+<img width="671" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/e2a95678-c404-46c2-9a38-26f0dcb84699">
 
 ### Действия клиента №2.1
 
-
+<img width="729" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/d0451ec1-5b90-45be-be16-8ae46dff7834">
 
 ### Действия клиента №2.2
 
-
+<img width="730" alt="image" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/6f3af073-5b21-40b2-ba67-80bc8c9dd73e">
 
 ### Действия клиента №3
 
+<img width="729" alt="Снимок экрана 2024-06-01 в 19 53 52" src="https://github.com/flowykk/operating-sys-hse/assets/71427624/14b00064-ff63-4257-bd95-1030e3a79fc0">
 
