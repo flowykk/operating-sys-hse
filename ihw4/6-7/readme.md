@@ -6,7 +6,7 @@
 
 Клиент №2 - [client2.cpp](client2.cpp)
 
-Клиент №3 - [client2.cpp](client3.cpp)
+Клиент №3 - [client3.cpp](client3.cpp)
 
 Сервер - [server.cpp](server.cpp)
 
